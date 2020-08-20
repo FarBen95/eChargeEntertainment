@@ -1,6 +1,7 @@
 package com.farben.echargeentertainment.db.entity;
 
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "website_table")
@@ -16,6 +17,7 @@ public class WebsiteEntity {
     public WebsiteEntity() {
     }
 
+    @Ignore
     public WebsiteEntity(int id, String title, String description, String link) {
         this.id = id;
         this.title = title;
@@ -23,6 +25,12 @@ public class WebsiteEntity {
         this.link = link;
     }
 
+    public WebsiteEntity(WebsiteEntity website) {
+        this.id = website.getId();
+        this.title = website.getTitle();
+        this.description = website.getDescription();
+        this.link = website.getLink();
+    }
 
     public int getId() {
         return id;
